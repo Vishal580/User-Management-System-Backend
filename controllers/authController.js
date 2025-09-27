@@ -9,9 +9,7 @@ const generateToken = (adminId) => {
   });
 };
 
-// @desc    Admin login
-// @route   POST /api/auth/login
-// @access  Public
+// Admin login
 const login = async (req, res) => {
   try {
     // Check for validation errors
@@ -55,9 +53,7 @@ const login = async (req, res) => {
   }
 };
 
-// @desc    Get current admin
-// @route   GET /api/auth/me
-// @access  Private
+// Get current admin
 const getMe = async (req, res) => {
   try {
     const admin = await Admin.findById(req.admin.id);
@@ -68,9 +64,7 @@ const getMe = async (req, res) => {
   }
 };
 
-// @desc    Verify token
-// @route   POST /api/auth/verify
-// @access  Private
+// Verify token
 const verifyToken = async (req, res) => {
   try {
     res.json({

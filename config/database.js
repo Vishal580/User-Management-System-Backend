@@ -1,6 +1,6 @@
 const mysql = require('mysql2/promise');
 const dotenv = require('dotenv');
-const bcrypt = require('bcrypt'); // added
+const bcrypt = require('bcrypt');
 dotenv.config();
 
 function getPoolOptionsFromEnv() {

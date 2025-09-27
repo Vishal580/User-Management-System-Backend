@@ -1,9 +1,7 @@
 const { validationResult } = require('express-validator');
 const User = require('../models/User');
 
-// @desc    Get all users with pagination and search
-// @route   GET /api/users
-// @access  Private
+// Get all users with pagination and search
 const getUsers = async (req, res) => {
   try {
     const page = parseInt(req.query.page, 10) || 1;
@@ -20,9 +18,7 @@ const getUsers = async (req, res) => {
   }
 };
 
-// @desc    Get single user
-// @route   GET /api/users/:id
-// @access  Private
+// Get single user
 const getUser = async (req, res) => {
   try {
     const user = await User.findById(req.params.id);
@@ -41,9 +37,7 @@ const getUser = async (req, res) => {
   }
 };
 
-// @desc    Create new user
-// @route   POST /api/users
-// @access  Private
+// Create new user
 const createUser = async (req, res) => {
   try {
     // Check for validation errors
@@ -80,9 +74,7 @@ const createUser = async (req, res) => {
   }
 };
 
-// @desc    Update user
-// @route   PUT /api/users/:id
-// @access  Private
+// Update user
 const updateUser = async (req, res) => {
   try {
     // Check for validation errors
@@ -131,9 +123,7 @@ const updateUser = async (req, res) => {
   }
 };
 
-// @desc    Delete user
-// @route   DELETE /api/users/:id
-// @access  Private
+// Delete user
 const deleteUser = async (req, res) => {
   try {
     const userId = req.params.id;

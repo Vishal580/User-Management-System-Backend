@@ -1,9 +1,7 @@
 const { validationResult } = require('express-validator');
 const Admin = require('../models/Admin');
 
-// @desc    Update admin profile (name)
-// @route   PUT /api/settings/profile
-// @access  Private
+// Update admin profile (name)
 const updateProfile = async (req, res) => {
   try {
     // Check for validation errors
@@ -38,9 +36,7 @@ const updateProfile = async (req, res) => {
   }
 };
 
-// @desc    Update admin password
-// @route   PUT /api/settings/password
-// @access  Private
+// Update admin password
 const updatePassword = async (req, res) => {
   try {
     // Check for validation errors
@@ -81,9 +77,7 @@ const updatePassword = async (req, res) => {
   }
 };
 
-// @desc    Get admin settings
-// @route   GET /api/settings
-// @access  Private
+// Get admin settings
 const getSettings = async (req, res) => {
   try {
     const admin = await Admin.findById(req.admin.id);

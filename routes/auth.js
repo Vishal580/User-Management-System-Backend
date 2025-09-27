@@ -7,7 +7,6 @@ const router = express.Router();
 
 // @route   POST /api/auth/login
 // @desc    Admin login
-// @access  Public
 router.post('/login', [
   body('email')
     .isEmail()
@@ -20,12 +19,10 @@ router.post('/login', [
 
 // @route   GET /api/auth/me
 // @desc    Get current admin
-// @access  Private
 router.get('/me', auth, getMe);
 
 // @route   POST /api/auth/verify
 // @desc    Verify token
-// @access  Private
 router.post('/verify', auth, verifyToken);
 
 module.exports = router;

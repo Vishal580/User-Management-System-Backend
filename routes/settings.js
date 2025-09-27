@@ -36,17 +36,14 @@ const passwordValidation = [
 
 // @route   GET /api/settings
 // @desc    Get admin settings
-// @access  Private
 router.get('/', auth, getSettings);
 
 // @route   PUT /api/settings/profile
 // @desc    Update admin profile
-// @access  Private
 router.put('/profile', [auth, ...profileValidation], updateProfile);
 
 // @route   PUT /api/settings/password
 // @desc    Update admin password
-// @access  Private
 router.put('/password', [auth, ...passwordValidation], updatePassword);
 
 module.exports = router;
