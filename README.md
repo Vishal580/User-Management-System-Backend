@@ -30,7 +30,12 @@ A robust Node.js/Express.js backend API for admin panel with user management and
 
 2. Configure environment variables in `.env`:
    ```
+   NODE_ENV=production
    PORT=5000
+   FRONTEND_URL=frontend_url
+   DATABASE_URL=your_db_url
+   
+   #Alternative
    DB_HOST=localhost
    DB_USER=root
    DB_PASSWORD=your_password
@@ -38,6 +43,7 @@ A robust Node.js/Express.js backend API for admin panel with user management and
    DEFAULT_ADMIN_PASSWORD=default_password
    JWT_SECRET=your_jwt_secret
    JWT_EXPIRE=24h
+
    ```
 
 3. Create MySQL database and run the SQL schema from `database.sql`

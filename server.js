@@ -52,7 +52,6 @@ const testDatabaseConnection = async () => {
     if (process.env.NODE_ENV !== 'production' && typeof db.initializeDatabase === 'function') {
       try {
         await db.initializeDatabase();
-        console.log('Database initialized (dev)');
       } catch (initErr) {
         console.error('Database initialization error:', initErr);
       }
