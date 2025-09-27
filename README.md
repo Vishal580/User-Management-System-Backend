@@ -69,7 +69,7 @@ A robust Node.js/Express.js backend API for admin panel with user management and
 ## 🔐 Default Admin
 
 - **Email:** admin@admin.com
-- **Password:** admin123
+- **Password:** please contact me for the password
 
 ## 🌐 Deployment
 
