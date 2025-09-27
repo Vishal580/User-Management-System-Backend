@@ -1,10 +1,11 @@
 const express = require('express');
 const cors = require('cors');
 const dotenv = require('dotenv');
-const db = require('./config/database');
 
-// Load environment variables
+// Load environment variables FIRST so database config can use them
 dotenv.config();
+
+const db = require('./config/database'); // returns pool, with db.initializeDatabase attached
 
 const app = express();
 
@@ -18,11 +19,20 @@ app.use('/api/auth', require('./routes/auth'));
 app.use('/api/users', require('./routes/users'));
 app.use('/api/settings', require('./routes/settings'));
 
-// Test database connection
+// Test database connection and optionally initialize (only in non-production)
 const testDatabaseConnection = async () => {
   try {
     await db.execute('SELECT 1');
     console.log('Database connected successfully');
+
+    if (process.env.NODE_ENV !== 'production' && typeof db.initializeDatabase === 'function') {
+      try {
+        await db.initializeDatabase();
+        console.log('Database initialized (dev)');
+      } catch (initErr) {
+        console.error('Database initialization error:', initErr);
+      }
+    }
   } catch (error) {
     console.error('Database connection error:', error);
   }
